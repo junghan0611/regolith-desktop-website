@@ -40,13 +40,13 @@ sudo apt install i3xrocks-battery
 
 # Wallpaper
 
-Most Regolith Looks provide a default desktop color or image.  The wallpaper can be set by specifying the path to the wallpaper image via the Xresources key `regolith.wallpaper.file`.  
+Most Regolith Looks provide a default desktop color or image.  The wallpaper can be set by specifying the path to the wallpaper image via the Xresources key `regolith.wallpaper.file`.
 
-Example, assuming the file `/usr/share/backgrounds/hardy_wallpaper_uhd.png` is present: 
+Example, assuming the file `/usr/share/backgrounds/hardy_wallpaper_uhd.png` is present:
 
 ```console
 echo "regolith.wallpaper.file: /usr/share/backgrounds/hardy_wallpaper_uhd.png" >> ~/.config/regolith2/Xresources
-regolith-look refresh 
+regolith-look refresh
 ```
 
 To change the image treatment (zoom, scale, etc.) of the wallpaper image, set `regolith.wallpaper.options`.  Options are: `none`, `wallpaper`, `centered`, `scaled`, `stretched`, `zoom`, `spanned`
@@ -55,7 +55,7 @@ Example:
 
 ```console
 echo "regolith.wallpaper.options: zoom" >> ~/.config/regolith2/Xresources
-regolith-look refresh 
+regolith-look refresh
 ```
 
 To specify a color rather than an image use the Xresource key `regolith.wallpaper.color.primary`:
@@ -63,7 +63,7 @@ To specify a color rather than an image use the Xresource key `regolith.wallpape
 ```console
 echo "regolith.wallpaper.file: " >> ~/.config/regolith2/Xresources
 echo "regolith.wallpaper.color.primary: blue" >> ~/.config/regolith2/Xresources
-regolith-look refresh 
+regolith-look refresh
 ```
 
 To specify a secondary color and gradient:
@@ -73,7 +73,7 @@ echo "regolith.wallpaper.file: " >> ~/.config/regolith2/Xresources
 echo "regolith.wallpaper.color.primary: blue" >> ~/.config/regolith2/Xresources
 echo "regolith.wallpaper.color.secondary: green" >> ~/.config/regolith2/Xresources
 echo "regolith.wallpaper.color.shading.type: vertical" >> ~/.config/regolith2/Xresources
-regolith-look refresh 
+regolith-look refresh
 ```
 
 ## Lockscreen Wallpaper
@@ -82,7 +82,7 @@ The lockscreen wallpaper can be managed in the same way as the desktop wallpaper
 
 ```console
 echo "regolith.lockscreen.wallpaper.file: /usr/share/backgrounds/hardy_wallpaper_uhd.png" >> ~/.config/regolith2/Xresources
-regolith-look refresh 
+regolith-look refresh
 ```
 
 ## Disable Wallpaper handling
@@ -128,7 +128,7 @@ Starting with Regolith 2.0, many aspects of i3 configuration are managed via the
 
 | Package                      | Function          |
 |------------------------------|-------------------|
-| regolith-i3-base-launchers   | Launch terminal and browser | 
+| regolith-i3-base-launchers   | Launch terminal and browser |
 | regolith-i3-default-style    | Window behavior |
 | regolith-i3-navigation       | Navigation keybindings |
 | regolith-i3-networkmanager   | Network and wifi functions |
@@ -140,6 +140,10 @@ Starting with Regolith 2.0, many aspects of i3 configuration are managed via the
 | regolith-i3-workspace-config | Workspace keybindings |
 
 Soft dependencies can be removed without causing packages that depend upon it to be removed. This means that any of the listed packages can be removed.  Users can make tweaks to configuration in a more stable manner by replacing a default configuration partial with their own version.  This can be achieved by copying the partial to be customized into `~/.config/regolith2/i3/config.d/` and removing the original file in `/usr/share/regolith/i3/config.d` via apt.  For example, to customize Workspace keybindings:
+
+> 이 부분이 중요하다! 일단, 설치해서 동작이 되면, 키 바인딩을 수정하고 싶어 진다. 설정 파일은 나의 닷파일에 잘 보관해두면 된다. STOW로 링크를 해 놓으면 아주 좋겠다.
+> 먼저 바꿀 키는 SUPER, ALT_L을 구분해서 사용하도록 하는 것이다. 워크스페이스를 방향키로 전환하면 편할 것 같다. 그러려면, 기존에 `SUPER+방향키` 매핑을 ALT로 바꿔준다.
+> 그리고, 워크스페이스 전환에 SUPER 키를 사용한다.
 
 ```console
 mkdir -p ~/.config/regolith2/i3/config.d
@@ -157,7 +161,7 @@ The following contains a list of all i3 configuration packages available in Rego
 
 | Package                      | Function          |
 |------------------------------|-------------------|
-| regolith-i3-base-launchers   | Launch terminal and browser | 
+| regolith-i3-base-launchers   | Launch terminal and browser |
 | regolith-i3-compositor       | Compositor integration (delegates to `regolith-compositor-<variant>`) |
 | regolith-i3-default-style    | Window behavior |
 | regolith-i3-ftue             | First time user experience |
